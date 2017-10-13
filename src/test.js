@@ -32,6 +32,18 @@ export default class Test extends React.Component {
 
     scrollSpy.update()
   }
+
+  scrollToFirstElement = () => {
+    //alert(5)
+    Scroll.scroller.scrollTo('secondInsideContainer', {
+      duration: 150,
+      // delay: 100,
+      smooth: true,
+      containerId: 'containerElement',
+      offset: 0, // Scrolls to element + 50 pixels down the page
+    })
+  }
+
   scrollToTop() {
     scroll.scrollToTop()
   }
@@ -69,15 +81,19 @@ export default class Test extends React.Component {
         >
           Go to second element inside container
         </Link>
+        <button onClick={this.scrollToFirstElement}>
+          scroll to second element
+        </button>
         <Element
           name="test7"
           className="element"
           id="containerElement"
           style={{
-            position: 'relative',
+            position: 'fixed',
             height: '200px',
             overflow: 'scroll',
             marginBottom: '100px',
+            backgroundColor: 'green',
           }}
         >
           test 7 (duration and container)
